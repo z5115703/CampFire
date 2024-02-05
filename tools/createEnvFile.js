@@ -15,7 +15,7 @@ readline.question(`Enter Discord Token : `, name => {
         if (err) throw err;
         else
         {
-           console.log(".env file cread - Access token Updated")
+           console.log(".env file cread - Access token Updated");
         }
      })
     readline.close();

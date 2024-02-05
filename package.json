@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "src\\main.js",
-  "something": "hello world",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src\\main.js",
-    "env-create": "node tools\\initEnv.js"
+    "env-create": "node tools\\createEnvFile.js"
   },
   "author": "Hyeonji Lee",
   "license": "ISC",
   "dependencies": {
+    "discord.js": "^14.14.1",
     "dotenv": "^16.4.1"
   }
 }
