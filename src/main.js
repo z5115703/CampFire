@@ -1,3 +1,18 @@
-require('dotenv').config()
+require('dotenv').config();
 
-console.log(process.env.DISCORD_TOKEN);
+const { Client, GatewayIntentBits } = require('discord.js');
+
+const client = new Client({
+	intents: [
+		GatewayIntentBits.Guilds,
+		GatewayIntentBits.GuildMessages,
+		GatewayIntentBits.MessageContent,
+		GatewayIntentBits.GuildMembers,
+	],
+});
+
+client.on("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`)
+});
+
+client.login(process.env.TOKEN);
