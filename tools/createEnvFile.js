@@ -5,6 +5,12 @@
  * 
  */
 
+/** Get Project Directory File path */
+const path = require('path');
+const directoryPath = path.dirname(path.dirname(__filename));
+/** Load Environment Variables */
+require('dotenv').config(directoryPath);
+
 /** Module Defintions */
 const fs = require('fs');
 const reader = require('readline-sync');
@@ -30,8 +36,24 @@ function main()
     createEnvironmentFile(environmentArgs,ENV_FILE_PATH);
 }
 
+function environmentVariableTest()
+{
+    const env = getEnvironmentVariable("DISCORD_TOKEN");
+}
+
+
 /** Methods */
-createEnvironmentFile = (environmentArguments, path) => {
+/** 
+ * createEnvironmentFile 
+ * 
+ * @breif Iteratively creates an environmnet file based on a given JSON structure.
+ * 
+ * @param environmentArgs   environment arguments - json structure
+ * @param path              env file path.
+ * 
+ * @returns No return
+ */ 
+function createEnvironmentFile(environmentArguments, path){
     // Overwrite File
     fs.writeFile(path,"", (err) => {
         if (err) throw err;
@@ -54,5 +76,20 @@ createEnvironmentFile = (environmentArguments, path) => {
     }
 }
 
+/** getEnvironmentVariable
+ * 
+ * @brief Returns the value of a given environment variable 
+ * 
+ * @param {*} variableName Name of environment variable 
+ * @returns environment variable value - string.
+ */
+function getEnvironmentVariable(variableName){
+    return process.env[variableName]
+}
+
 /** Function Calls */
-main();
+
+//main();
+// environmentVariableTest();
+
+// document.getElementById("discordToken").value = getEnvironmentVariable[environmentArgs.discordAccessToken.alias];
