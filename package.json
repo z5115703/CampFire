@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src\\main.js",
-    "env-create": "node tools\\createEnvFile.js"
+    "env-create": "node tools\\envfile\\createEnvFile.js"
   },
   "author": "Hyeonji Lee",
   "license": "ISC",

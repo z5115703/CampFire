@@ -7,7 +7,7 @@
 
 /** Get Project Directory File path */
 const path = require('path');
-const directoryPath = path.dirname(path.dirname(__filename));
+const directoryPath = path.dirname(path.dirname(path.dirname(__filename)));
 /** Load Environment Variables */
 require('dotenv').config(directoryPath);
 
@@ -39,8 +39,8 @@ function main()
 function environmentVariableTest()
 {
     const env = getEnvironmentVariable("DISCORD_TOKEN");
+    console.log(env);
 }
-
 
 /** Methods */
 /** 
@@ -90,6 +90,5 @@ function getEnvironmentVariable(variableName){
 /** Function Calls */
 
 //main();
-// environmentVariableTest();
-
+environmentVariableTest();
 // document.getElementById("discordToken").value = getEnvironmentVariable[environmentArgs.discordAccessToken.alias];

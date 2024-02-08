@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Env File Generation</title>
+  </head>
+  <body>
+    <main>
+        <h2>Create Environment File</h2>  
+
+        <div class="environmentVariables">
+            <label for="discordToken">Discord Token: </label>
+            <input type="text" id="discordToken" name="discordToken", value = "", size="50"> 
+        </div>
+
+        <script src="./index.js"></script>
+        <script>
+          setTextBoxFromApi("discordToken","https://pokeapi.co/api/v2/pokemon/ditto");
+        </script> 
+    </main>
+  </body>
+</html>
+
