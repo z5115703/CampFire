@@ -9,7 +9,7 @@
 const path = require('path');
 const directoryPath = path.dirname(path.dirname(path.dirname(__filename)));
 /** Load Environment Variables */
-require('dotenv').config(directoryPath);
+const dotenv = require('dotenv');
 
 /** Module Defintions */
 const fs = require('fs');
@@ -36,12 +36,6 @@ function main()
     createEnvironmentFile(environmentArgs,ENV_FILE_PATH);
 }
 
-function environmentVariableTest()
-{
-    const env = getEnvironmentVariable("DISCORD_TOKEN");
-    console.log(env);
-}
-
 /** Methods */
 /** 
  * createEnvironmentFile 
@@ -65,7 +59,7 @@ function createEnvironmentFile(environmentArguments, path){
 
     for (const [ _ , value] of Object.entries(environmentArguments)) 
     {
-        fs.appendFile(path, value.alias+"="+value.value, (err) => {
+        fs.appendFile(path, `${value.alias}=\"${value.value}\"`, (err) => {
             if (err) throw err;
             else
             {
@@ -84,11 +78,29 @@ function createEnvironmentFile(environmentArguments, path){
  * @returns environment variable value - string.
  */
 function getEnvironmentVariable(variableName){
-    return process.env[variableName]
+    reloadEnv();
+    return process.env[variableName];
+}
+
+
+function reloadEnv() 
+{
+    const envConfig = dotenv.parse(fs.readFileSync(directoryPath + '\\.env'));
+    for (const key in envConfig) 
+    {
+        process.env[key] = envConfig[key];
+    }
 }
 
 /** Function Calls */
+reloadEnv() 
+
+if (require.main === module) {
+    main();
+}
 
 //main();
-environmentVariableTest();
+// environmentVariableTest();
 // document.getElementById("discordToken").value = getEnvironmentVariable[environmentArgs.discordAccessToken.alias];
+
+module.exports = { getEnvironmentVariable}

@@ -14,7 +14,7 @@
 async function setTextBoxFromApi(elementId,apiUrl) {
     try {
         const apiRequest = await getRequestFromApi(apiUrl);
-        setTextBoxValue(elementId,apiRequest.name);
+        setTextBoxValue(elementId,apiRequest.response);
     } catch (error) {
         console.error('Error:', error);
     }

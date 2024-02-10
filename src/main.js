@@ -1,8 +1,8 @@
 /** Get Project Directory File path */
 const path = require('path');
 const directoryPath = path.dirname(path.dirname(__filename));
-
-require('dotenv').config(directoryPath);
+const dotenv = require('dotenv');
+const fs = require('fs');
 
 const { Client, GatewayIntentBits } = require('discord.js');
 
@@ -18,6 +18,17 @@ const client = new Client({
 client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
 });
+
+function reloadEnv() 
+{
+    const envConfig = dotenv.parse(fs.readFileSync(directoryPath + '\\.env'));
+    for (const key in envConfig) 
+    {
+        process.env[key] = envConfig[key];
+    }
+}
+
+reloadEnv();
 
 // client.login(process.env.TOKEN);
 console.log(process.env.DISCORD_TOKEN)
