@@ -7,7 +7,7 @@
 
 /** Get Project Directory File path */
 const path = require('path');
-const directoryPath = path.dirname(path.dirname(path.dirname(__filename)));
+const directoryPath = path.dirname(path.dirname(__dirname));
 /** Load Environment Variables */
 const dotenv = require('dotenv');
 
@@ -77,11 +77,31 @@ function createEnvironmentFile(environmentArguments, path){
  * @param {*} variableName Name of environment variable 
  * @returns environment variable value - string.
  */
-function getEnvironmentVariable(variableName){
-    reloadEnv();
+function getEnvironmentVariable(variableName)
+{
     return process.env[variableName];
 }
 
+function setEnvironmentVariable(variableName,variableValue)
+{
+    let status = false;
+    for (const [ name , value] of Object.entries(environmentArgs)) 
+    {
+        if (value.alias == variableName)
+        {
+            environmentArgs[name].value = variableValue;
+            status = true;
+            console.log("Env Variable set Disord token " + variableValue);
+            break;
+        }
+    }
+    return status;
+}
+
+function saveEnv()
+{
+    createEnvironmentFile(environmentArgs,ENV_FILE_PATH);
+}
 
 function reloadEnv() 
 {
@@ -99,8 +119,4 @@ if (require.main === module) {
     main();
 }
 
-//main();
-// environmentVariableTest();
-// document.getElementById("discordToken").value = getEnvironmentVariable[environmentArgs.discordAccessToken.alias];
-
-module.exports = { getEnvironmentVariable}
+module.exports = { getEnvironmentVariable , reloadEnv , setEnvironmentVariable, saveEnv}

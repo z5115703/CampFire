@@ -1,6 +1,6 @@
 /** Get Project Directory File path */
 const path = require('path');
-const directoryPath = path.dirname(path.dirname(__filename));
+const directoryPath = path.dirname(__dirname);
 const dotenv = require('dotenv');
 const fs = require('fs');
 

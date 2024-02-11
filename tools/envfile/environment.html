@@ -8,13 +8,17 @@
   <body>
     <main>
         <h2>Create Environment File</h2>  
+        <script src="/apiCalls.js"></script>
 
         <div class="environmentVariables">
             <label for="discordToken">Discord Token: </label>
             <input type="text" id="discordToken" name="discordToken", value = "", size="50"> 
         </div>
 
-        <script src="./index.js"></script>
+        <div class = "saveButton"> 
+            <button type="button" onclick="saveAllDataToDocument()"> Save </button>
+        </div>
+
         <script>
           setTextBoxFromApi("discordToken","http://localhost:3000/env-variable?variable=DISCORD_TOKEN");
         </script> 
