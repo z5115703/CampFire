@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Env File Generation</title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <main>
-        <h2>Create Environment File</h2>  
-        <script src="/apiCalls.js"></script>
+    <script src="/apiCalls.js"></script>
 
-        <div class="environmentVariables">
-            <label for="discordToken">Discord Token: </label>
-            <input type="text" id="discordToken" name="discordToken", value = "", size="50"> 
+    <main>
+        <div class="div-style-banner">
+          <h2 class ="h2-banner">Create Environment File</h2> 
         </div>
 
-        <div class = "saveButton"> 
-            <button type="button" onclick="saveAllDataToDocument()"> Save </button>
+        <div class="environmentVariables">
+            <br>
+            <label for="discordToken">Discord Token: </label>
+            <input type="text" id="discordToken" name="discordToken", value = "", size="30"> 
+            <br><br>
+            <button class= "saveButton" type="button" onclick="saveAllDataToDocument()"> Save </button>
         </div>
 
         <script>

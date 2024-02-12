@@ -1,0 +1,55 @@
+:root{
+    /* Standard Colours */
+    --pure-white: #ffffff;
+    /* Discord Colour Palette */
+    --discord-main: #7289da;
+    --discord-grey-light: #424549;
+    --discord-grey-medium: #36393e;
+    --discord-grey-dark: #282b30;
+    --discord-black: #1e2124;
+    --discord-light: #e3ebf0;
+
+    --discord-main-alternative: #867df0;
+}
+
+body 
+{
+    background-color: var(--discord-grey-light);
+}
+
+.environmentVariables
+{
+    background-color: var(--discord-main);
+    text-align: left;
+    padding: 10px;
+    margin: auto;
+    /* border-radius: 30px; */
+    border: 3px solid var(--discord-grey-light);
+    color: var(--pure-white);
+    font-size: large;
+}
+
+.saveButton
+{
+    height:30px;
+    width: 80px;
+}
+
+.div-style-banner
+{
+    background-color: var(--discord-main);
+    text-align: center;
+    margin: auto;
+    border: 3px solid var(--discord-grey-light);
+    max-height: 30%;
+    min-height: 10%;
+    height: 70px;
+    padding: 5px;
+}
+
+.h2-banner
+{
+    color: var(--pure-white);
+    text-align: left;
+    display: inline-block;
+}
