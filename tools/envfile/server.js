@@ -11,6 +11,9 @@ app.use(cors());
 /** Include root directory - so server can host files from tools*/
 app.use(express.static(__dirname));
 
+/** 
+ *  Front page - Configuration
+ */
 app.get("/",(req,res) => {
     reloadEnv();
     res.sendFile('./environment.html', {root: __dirname });
@@ -37,6 +40,7 @@ app.get("/env-variable", (req,res) => {
     }
 });
 
+/** Post method for environment variables */
 app.post("/env-variable", (req,res) => {
     let envVariable = req.query.variable;
     let data        = req.query.data;
@@ -54,6 +58,7 @@ app.post("/env-variable", (req,res) => {
     }
 });
 
+/* Save to file */
 app.get("/save", (req,res) => {
     saveEnv();
     res.json({"response" : "Complete"})

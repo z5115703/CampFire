@@ -82,6 +82,13 @@ function getEnvironmentVariable(variableName)
     return process.env[variableName];
 }
 
+/**
+ * @brief sets the environment 
+ * 
+ * @param {*} variableName   name of the environment variable (alias)
+ * @param {*} variableValue  value of the environment variable
+ * @returns 
+ */
 function setEnvironmentVariable(variableName,variableValue)
 {
     let status = false;
@@ -98,6 +105,11 @@ function setEnvironmentVariable(variableName,variableValue)
     return status;
 }
 
+/** SaveEnv
+ * 
+ * Saves the environment variable 
+ * 
+ */
 function saveEnv()
 {
     createEnvironmentFile(environmentArgs,ENV_FILE_PATH);
