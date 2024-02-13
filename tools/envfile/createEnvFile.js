@@ -22,7 +22,7 @@ const ENV_FILE_PATH = ".env";
 let environmentArgs = {
   "discordAccessToken" : {
     "alias" : "DISCORD_TOKEN",
-    "value" : null
+    "value" : " "
   },
 };
 
@@ -117,7 +117,18 @@ function saveEnv()
 
 function reloadEnv() 
 {
-    const envConfig = dotenv.parse(fs.readFileSync(directoryPath + '\\.env'));
+    const environmentFilePath = directoryPath + '\\.env';
+    
+    if (fs.existsSync(environmentFilePath))
+    {
+        console.log("Found .env File");
+    }
+    else
+    {
+        createEnvironmentFile(environmentArgs,environmentFilePath);
+    }
+
+    const envConfig = dotenv.parse(fs.readFileSync(environmentFilePath));
     for (const key in envConfig) 
     {
         process.env[key] = envConfig[key];
@@ -125,7 +136,7 @@ function reloadEnv()
 }
 
 /** Function Calls */
-reloadEnv() 
+reloadEnv();
 
 if (require.main === module) {
     main();

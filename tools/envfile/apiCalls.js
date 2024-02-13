@@ -32,7 +32,6 @@ function setTextBoxValue(elementId,data)
     documentElement.value = data;
 }
 
-
 /**
  * @brief Simple HTTP get request
  * 
