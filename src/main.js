@@ -19,10 +19,10 @@ client.on("ready", () => {
   console.log(`Logged in as ${client.user.tag}!`)
 });
 
-function reloadEnv() 
+function reloadEnv()
 {
     const envConfig = dotenv.parse(fs.readFileSync(directoryPath + '\\.env'));
-    for (const key in envConfig) 
+    for (const key in envConfig)
     {
         process.env[key] = envConfig[key];
     }
@@ -30,5 +30,4 @@ function reloadEnv()
 
 reloadEnv();
 
-// client.login(process.env.TOKEN);
-console.log(process.env.DISCORD_TOKEN)
+client.login(process.env.DISCORD_TOKEN);
