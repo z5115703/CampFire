@@ -22,7 +22,7 @@ const ENV_FILE_PATH = ".env";
 let environmentArgs = {
   "discordAccessToken" : {
     "alias" : "DISCORD_TOKEN",
-    "value" : " "
+    "value" : ""
   },
 };
 
@@ -49,7 +49,7 @@ function main()
  */ 
 function createEnvironmentFile(environmentArguments, path){
     // Overwrite File
-    fs.writeFile(path,"", (err) => {
+    fs.writeFileSync(path,"", (err) => {
         if (err) throw err;
         else
         {
@@ -59,7 +59,7 @@ function createEnvironmentFile(environmentArguments, path){
 
     for (const [ _ , value] of Object.entries(environmentArguments)) 
     {
-        fs.appendFile(path, `${value.alias}=\"${value.value}\"`, (err) => {
+        fs.appendFileSync(path, `${value.alias}=\"${value.value}\"`, (err) => {
             if (err) throw err;
             else
             {

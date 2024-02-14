@@ -14,9 +14,12 @@ app.use(express.static(__dirname));
 /** 
  *  Front page - Configuration
  */
-app.get("/",(req,res) => {
-    reloadEnv();
-    res.sendFile('./environment.html', {root: __dirname });
+app.get("/",async (req,res) => {
+    let result = await reloadEnv();
+    if (result = true)
+    {
+        res.sendFile('./environment.html', {root: __dirname });
+    }
 });
 
 /** Quick Ping Method */
