@@ -18,7 +18,7 @@ app.get("/",async (req,res) => {
     let result = await reloadEnv();
     if (result = true)
     {
-        res.sendFile('./environment.html', {root: __dirname });
+        res.sendFile('./html/environment.html', {root: __dirname });
     }
 });
 
