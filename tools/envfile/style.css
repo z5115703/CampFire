@@ -9,46 +9,115 @@
     --discord-black: #1e2124;
     --discord-light: #e3ebf0;
     --discord-main-alternative: #867df0;
+    --discord-main-hover: #7b8ed4;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 24.2px;
+}
+
+/* CSS styles for the input fields */
+input[type="text"] {
+    width: 281px;
+    height: 33px;
+    padding: 8px,12px,8px,12px;
+    gap: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 16.94px;
+    text-indent: 8px;
+    border-radius: 6px;
+}
+
+.environmentLabels
+{
+    padding-top: 25px;
+    padding-bottom: 37px;
+    width: 100%;
+    text-align: center;
+}
+
+@media screen and (max-width: 1150px) {
+    input[type="text"] {
+        margin-top: 15px;
+    }
+    
+    /* Change label styles */
+    .environmentLabels
+    {
+        padding-top: 25px;
+        padding-bottom: 37px;
+        text-align: left;
+        padding-left: 18.5%;
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 body 
 {
-    background-color: var(--discord-grey-light);
+    background-color: var(--discord-main);
+}
+
+.vertical-space
+{
+    padding:10px;
 }
 
 .environmentVariables
 {
-    background-color: var(--discord-main);
-    text-align: left;
+    background-color: var(--discord-grey-light);
+    text-align: center;
     padding: 10px;
     margin: auto;
     /* border-radius: 30px; */
     border: 3px solid var(--discord-grey-light);
     color: var(--pure-white);
     font-size: large;
+    font-style: normal;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 16px;
+    padding: 80px;
+    min-width: 441px;
+    width: 40%;
 }
 
 .saveButton
 {
-    height:30px;
-    width: 80px;
+    height:45px;
+    width: 143px;
+    padding: 14px,24px,14px,24px;
+    color: var(--pure-white);
+    background-color: var(--discord-main);
+    border-radius: 6px;
+    box-shadow: none;
+    border: none;
+    text-align: center;
 }
 
-.div-style-banner
+.saveButton:active{
+    background-color: var(--discord-main-hover);
+    -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+       -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
+     outline: none;
+  }
+
+.label-text
 {
-    background-color: var(--discord-main);
-    text-align: center;
-    margin: auto;
-    border: 3px solid var(--discord-grey-light);
-    max-height: 30%;
-    min-height: 10%;
-    height: 70px;
-    padding: 5px;
+    size: 20px;
 }
 
 .h2-banner
 {
     color: var(--pure-white);
-    text-align: left;
+    text-align: center;
     display: inline-block;
+    font-size: 24px;
 }

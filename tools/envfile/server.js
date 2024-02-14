@@ -44,7 +44,6 @@ app.get("/env-variable", (req,res) => {
 app.post("/env-variable", (req,res) => {
     let envVariable = req.query.variable;
     let data        = req.query.data;
-
     let resp = setEnvironmentVariable(envVariable,data);
     console.log(data)
 
